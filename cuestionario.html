@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <h1>Formulario de Autoevaluación</h1>
+    <p>Comprueba tus conocimientos rellenando el siguiente test. Es necesario contestar a todas las preguntas.</p>
+    
+    <form id="formulario-evaluacion">
+        <!-- Caja de texto (text) - Pregunta corta -->
+        <div class="grupo-form">
+            <label for="nombre">1. Escribe tu nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre...">
+        </div>
+
+        <!-- Radio Button - Test única respuesta -->
+        <div class="grupo-form">
+            <label>2. ¿Qué lenguaje se usa para decorar la web?</label>
+            <div>
+                <input type="radio" id="r-html" name="lenguaje_decoracion" value="html">
+                <label for="r-html" style="display:inline; font-weight:normal;">HTML</label>
+            </div>
+            <div>
+                <input type="radio" id="r-css" name="lenguaje_decoracion" value="css">
+                <label for="r-css" style="display:inline; font-weight:normal;">CSS</label>
+            </div>
+            <div>
+                <input type="radio" id="r-js" name="lenguaje_decoracion" value="js">
+                <label for="r-js" style="display:inline; font-weight:normal;">JavaScript</label>
+            </div>
+        </div>
+
+        <!-- Combo Box (select) - Test única respuesta -->
+        <div class="grupo-form">
+            <label for="etiqueta_enlace">3. ¿Qué etiqueta HTML se usa para crear un enlace?</label>
+            <select id="etiqueta_enlace" name="etiqueta_enlace">
+                <option value="">-- Selecciona una opción --</option>
+                <option value="a">&lt;a&gt;</option>
+                <option value="link">&lt;link&gt;</option>
+                <option value="href">&lt;href&gt;</option>
+            </select>
+        </div>
+
+        <!-- Checkbox - Test múltiple -->
+        <div class="grupo-form">
+            <label>4. Selecciona las metodologías tratadas en la web (varias opciones):</label>
+            <div>
+                <input type="checkbox" id="chk-flipped" name="metodos" value="flipped">
+                <label for="chk-flipped" style="display:inline; font-weight:normal;">Flipped Classroom</label>
+            </div>
+            <div>
+                <input type="checkbox" id="chk-aronson" name="metodos" value="aronson">
+                <label for="chk-aronson" style="display:inline; font-weight:normal;">Puzzle de Aronson</label>
+            </div>
+            <div>
+                <input type="checkbox" id="chk-montessori" name="metodos" value="montessori">
+                <label for="chk-montessori" style="display:inline; font-weight:normal;">Montessori</label>
+            </div>
+        </div>
+
+        <div class="botones-form">
+            <button type="button" class="accion" onclick="procesarFormulario()">Corregir Test</button>
+            <button type="reset" class="accion" style="background-color:#666;" onclick="ocultarResultado()">Limpiar</button>
+        </div>
+    </form>
+
+    <!-- Div donde Javascript mostrará el resultado -->
+    <div id="resultado-evaluacion"></div>
+</body>
+</html>
