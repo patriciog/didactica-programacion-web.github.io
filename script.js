@@ -8,21 +8,42 @@ btnMenu.onclick = function() {
 
 // 2. Accesibilidad: Aumentar/Reducir tamaño de letra
 const btnAccesibilidad = document.getElementById('btn-accesibilidad');
-let nivelLetra = 0; // 0: Normal, 1: Grande, 2: Muy Grande
+const iframePrincipal = document.getElementById('iframe-principal');
 
-btnAccesibilidad.onclick = function() {
-	const root = document.documentElement;
-	nivelLetra++;
-	if(nivelLetra > 2) nivelLetra = 0; // Reinicia el ciclo
+let nivelLetra = 0;
+const tamanos = ['16px', '20px', '24px'];
 
-	if(nivelLetra === 0) {
-		root.style.setProperty('--tamano-fuente', '16px');
-	} else if (nivelLetra === 1) {
-		root.style.setProperty('--tamano-fuente', '20px');
-	} else if (nivelLetra === 2) {
-		root.style.setProperty('--tamano-fuente', '24px');
+// Función que aplica el tamaño a la carcasa Y al iframe
+function aplicarTamanoLetra() {
+	const nuevoTamano = tamanos[nivelLetra];
+
+	// 1. Cambiamos la variable en la Carcasa (index.html)
+	document.documentElement.style.setProperty('--tamano-fuente', nuevoTamano);
+
+	// 2. Nos metemos en el Iframe y cambiamos la variable allí también
+	try {
+		if (iframePrincipal && iframePrincipal.contentDocument) {
+			iframePrincipal.contentDocument.documentElement.style.setProperty('--tamano-fuente', nuevoTamano);
+		}
+	} catch (e) {
+		console.log("Error de seguridad al acceder al iframe (normal si se abre en local).");
 	}
-};
+}
+
+if (btnAccesibilidad) {
+	btnAccesibilidad.onclick = function() {
+		nivelLetra = (nivelLetra + 1) % 3; // Pasa de 0 a 1, a 2, y vuelve a 0
+		aplicarTamanoLetra();
+	};
+}
+
+// TRUCO CLAVE: Cuando cambias de página en el menú, el iframe se resetea.
+// Esto vuelve a aplicar el tamaño grande a la página nueva nada más cargar.
+if (iframePrincipal) {
+	iframePrincipal.addEventListener('load', function() {
+		aplicarTamanoLetra();
+	});
+}
 
 // 3. Navegación entre "Páginas" (Simulando HTMLs independientes)
 function cambiarPagina(idPagina) {
