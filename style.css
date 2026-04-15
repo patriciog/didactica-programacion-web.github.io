@@ -1,0 +1,260 @@
+<style>
+	/* Variables CSS para el tamaño de fuente (Accesibilidad) */
+	:root {
+		--tamano-fuente: 16px;
+		--color-primario: #cc0000; /* Color rojo tipo universidad */
+		--color-fondo: #f4f4f4;
+		--color-texto: #333333;
+		--color-borde: #dddddd;
+	}
+
+	/* Estilos generales */
+	body {
+		font-family: Arial, sans-serif;
+		font-size: var(--tamano-fuente);
+		color: var(--color-texto);
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+		background-color: #e9ecef;
+	}
+
+	/* Cabecera superior */
+	header {
+		background-color: var(--color-primario);
+		color: white;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px 20px;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+		z-index: 10;
+	}
+
+	.header-izquierda {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+	}
+
+	#btn-menu {
+		background: none;
+		border: 1px solid white;
+		color: white;
+		font-size: 1.2em;
+		cursor: pointer;
+		padding: 5px 10px;
+		border-radius: 4px;
+	}
+
+	#btn-menu:hover {
+		background-color: rgba(255, 255, 255, 0.2);
+	}
+
+	.logo {
+		height: 40px;
+		background-color: white;
+		padding: 2px;
+		border-radius: 4px;
+	}
+
+	/* Botón de accesibilidad */
+	#btn-accesibilidad {
+		background-color: white;
+		color: var(--color-primario);
+		border: none;
+		padding: 8px 12px;
+		font-weight: bold;
+		cursor: pointer;
+		border-radius: 4px;
+		font-size: 1em;
+	}
+
+	#btn-accesibilidad:hover {
+		background-color: #f0f0f0;
+	}
+
+	/* Contenedor principal (Layout) */
+	.contenedor-principal {
+		display: flex;
+		flex: 1;
+		overflow: hidden;
+	}
+
+	/* Menú lateral (Sidebar) */
+	nav {
+		width: 250px;
+		background-color: white;
+		border-right: 1px solid var(--color-borde);
+		padding: 20px 0;
+		overflow-y: auto;
+		transition: transform 0.3s ease;
+	}
+
+	/* Clase para ocultar el menú */
+	nav.oculto {
+		display: none;
+	}
+
+	nav ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	nav ul li {
+		border-bottom: 1px solid var(--color-borde);
+	}
+
+	nav ul li a {
+		display: block;
+		padding: 12px 20px;
+		text-decoration: none;
+		color: var(--color-texto);
+		font-weight: bold;
+	}
+
+	nav ul li a:hover {
+		background-color: var(--color-fondo);
+		color: var(--color-primario);
+	}
+
+	nav ul li ul {
+		background-color: #fafafa;
+	}
+
+	nav ul li ul li a {
+		padding-left: 40px;
+		font-weight: normal;
+	}
+
+	/* Contenedor del contenido central */
+	main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		overflow-y: auto;
+		background-color: white;
+		margin: 15px;
+		border: 1px solid var(--color-borde);
+		border-radius: 8px;
+		box-shadow: 0 0 10px rgba(0,0,0,0.05);
+	}
+
+	/* Secciones de contenido independiente */
+	.pagina-contenido {
+		padding: 30px;
+		display: none; /* Ocultas por defecto */
+		flex: 1;
+	}
+
+	.pagina-contenido.activa {
+		display: block; /* Solo se muestra la activa */
+	}
+
+	/* Estilos para el contenido interior para cumplir la rúbrica */
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 20px;
+	}
+
+	th, td {
+		border: 1px solid var(--color-borde);
+		padding: 10px;
+		text-align: left;
+	}
+
+	th {
+		background-color: var(--color-fondo);
+	}
+
+	img.imagen-contenido {
+		max-width: 100%;
+		height: auto;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+
+	/* Footer dentro del contenedor central */
+	footer {
+		background-color: var(--color-fondo);
+		padding: 15px;
+		text-align: center;
+		border-top: 1px solid var(--color-borde);
+		font-style: italic;
+		font-size: 0.9em;
+		margin-top: auto; /* Empuja el footer al fondo */
+	}
+
+	/* Estilos del formulario */
+	form {
+		background-color: #fafafa;
+		padding: 20px;
+		border: 1px solid var(--color-borde);
+		border-radius: 5px;
+	}
+
+	.grupo-form {
+		margin-bottom: 15px;
+	}
+
+	label {
+		display: block;
+		margin-bottom: 5px;
+		font-weight: bold;
+	}
+
+	input[type="text"], select {
+		width: 100%;
+		padding: 8px;
+		box-sizing: border-box;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+
+	.botones-form {
+		margin-top: 20px;
+		display: flex;
+		gap: 10px;
+	}
+
+	button.accion {
+		padding: 10px 15px;
+		background-color: var(--color-primario);
+		color: white;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 1em;
+	}
+
+	button.accion:hover {
+		background-color: #a00000;
+	}
+
+	#resultado-evaluacion {
+		margin-top: 20px;
+		padding: 15px;
+		border-radius: 4px;
+		display: none;
+	}
+	
+	.nota-bien { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+	.nota-mal { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+	/* Responsividad básica */
+	@media (max-width: 768px) {
+		.contenedor-principal {
+			flex-direction: column;
+		}
+		nav {
+			width: 100%;
+			height: auto;
+			border-right: none;
+			border-bottom: 1px solid var(--color-borde);
+		}
+	}
+</style>
