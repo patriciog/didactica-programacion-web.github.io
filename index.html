@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Didácticas - Web</title>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <script src="script.js"></script>
+
+    <!-- Carcasa común: Cabecera -->
+    <header>
+        <div class="header-izquierda">
+            <button id="btn-menu" aria-label="Alternar menú">☰</button>
+            <!-- Logo de la universidad (Placeholder o enlace directo) -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/URJC_logo.svg" alt="Logo Universidad" class="logo">
+        </div>
+        <div>
+            <button id="btn-accesibilidad" title="Cambiar tamaño de texto">Aa ±</button>
+        </div>
+    </header>
+
+    <div class="contenedor-principal">
+        <!-- Carcasa común: Menú Lateral -->
+        <nav id="menu-lateral">
+            <ul>
+                <li><a href="#" onclick="cambiarPagina('pagina-inicio')">Inicio</a></li>
+                <li><a href="#" onclick="cambiarPagina('pagina-metodologias')">Metodologías</a></li>
+                <li><a href="#">Web ▾</a>
+                    <ul>
+                        <li><a href="#" onclick="cambiarPagina('pagina-html')">HTML5</a></li>
+                        <li><a href="#" onclick="cambiarPagina('pagina-css')">CSS</a></li>
+                        <li><a href="#" onclick="cambiarPagina('pagina-js')">JS</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="cambiarPagina('pagina-cuestionario')">Cuestionario</a></li>
+            </ul>
+        </nav>
+
+        <!-- Carcasa común: Contenedor Central Independiente -->
+        <main>
+            
+            <!-- ========================================== -->
+            <!-- ARCHIVO 1: INICIO (Simulado en un bloque)  -->
+            <!-- ========================================== -->
+            <section id="pagina-inicio" class="pagina-contenido activa">
+                <h1>Bienvenido a la Práctica de Didácticas Web</h1>
+                <p>Este sitio web ha sido diseñado como material didáctico para enseñar los fundamentos del desarrollo web a alumnos de enseñanza preuniversitaria.</p>
+                <img src="https://images.unsplash.com/photo-1504699542114-bc1d411105d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Programación" class="imagen-contenido">
+                <p>Navega por el menú lateral para descubrir los diferentes módulos:</p>
+                <ul>
+                    <li>Metodologías de enseñanza</li>
+                    <li>Lenguajes fundamentales de la Web</li>
+                    <li>Prueba de autoevaluación</li>
+                </ul>
+                <p>Visita el sitio oficial del <a href="https://www.w3.org/" target="_blank">W3C</a> para más información sobre estándares.</p>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- ARCHIVO 2: METODOLOGÍAS                    -->
+            <!-- ========================================== -->
+            <section id="pagina-metodologias" class="pagina-contenido">
+                <h1>Metodologías de Aprendizaje</h1>
+                <p>En este curso utilizaremos metodologías activas para mejorar la retención del conocimiento.</p>
+                
+                <h2>Flipped Classroom (Aula Invertida)</h2>
+                <p>El material se facilita previamente. Los alumnos revisan la teoría en casa y usamos el tiempo de clase para resolver dudas y hacer prácticas.</p>
+                
+                <h2>Puzzle de Aronson (Jigsaw)</h2>
+                <p>Técnica de aprendizaje cooperativo donde cada alumno se vuelve experto en un tema:</p>
+                <ol>
+                    <li>Formación de grupos base.</li>
+                    <li>División del material (HTML, CSS, JS, Diseño).</li>
+                    <li>Reunión de expertos.</li>
+                    <li>Regreso al grupo base para enseñar al resto.</li>
+                </ol>
+
+                <h3>Tabla resumen de roles</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rol</th>
+                            <th>Responsabilidad principal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HTML</td>
+                            <td>Estructura y semántica de la página.</td>
+                        </tr>
+                        <tr>
+                            <td>CSS</td>
+                            <td>Decoración y diseño visual.</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript</td>
+                            <td>Interactividad y validación de formularios.</td>
+                        </tr>
+                        <tr>
+                            <td>Diseño</td>
+                            <td>Usabilidad y accesibilidad web.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- ARCHIVO 3: HTML5                           -->
+            <!-- ========================================== -->
+            <section id="pagina-html" class="pagina-contenido">
+                <h1>HTML5 (HyperText Markup Language)</h1>
+                <p>HTML es el lenguaje de marcas estándar para la creación de páginas web. Define la estructura básica.</p>
+                <p>Reglas fundamentales:</p>
+                <ul>
+                    <li>Todo debe estar dentro de etiquetas.</li>
+                    <li>Las etiquetas deben anidarse correctamente.</li>
+                    <li>Existe una cabecera (<code>&lt;head&gt;</code>) y un cuerpo (<code>&lt;body&gt;</code>).</li>
+                </ul>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- ARCHIVO 4: CSS                             -->
+            <!-- ========================================== -->
+            <section id="pagina-css" class="pagina-contenido">
+                <h1>CSS (Cascading Style Sheets)</h1>
+                <p>CSS se encarga de la decoración y el aspecto visual de la estructura HTML. Permite separar el contenido de la presentación.</p>
+                <p>Con CSS podemos cambiar:</p>
+                <ul>
+                    <li>Colores y fondos.</li>
+                    <li>Tamaños de letra (Fuentes).</li>
+                    <li>Márgenes y alineación (Modelo de caja).</li>
+                </ul>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- ARCHIVO 5: JS                              -->
+            <!-- ========================================== -->
+            <section id="pagina-js" class="pagina-contenido">
+                <h1>JavaScript</h1>
+                <p>JavaScript es un lenguaje de programación que se ejecuta en el navegador del cliente. Proporciona interactividad a las páginas web.</p>
+                <p>Funciones comunes:</p>
+                <ul>
+                    <li>Validar formularios antes de enviarlos.</li>
+                    <li>Modificar el CSS en tiempo real (eventos).</li>
+                    <li>Ocultar o mostrar elementos dinámicamente.</li>
+                </ul>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- ARCHIVO 6: CUESTIONARIO (Formulario)       -->
+            <!-- ========================================== -->
+            <section id="pagina-cuestionario" class="pagina-contenido">
+                <h1>Formulario de Autoevaluación</h1>
+                <p>Comprueba tus conocimientos rellenando el siguiente test. Es necesario contestar a todas las preguntas.</p>
+                
+                <form id="formulario-evaluacion">
+                    <!-- Caja de texto (text) - Pregunta corta -->
+                    <div class="grupo-form">
+                        <label for="nombre">1. Escribe tu nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre...">
+                    </div>
+
+                    <!-- Radio Button - Test única respuesta -->
+                    <div class="grupo-form">
+                        <label>2. ¿Qué lenguaje se usa para decorar la web?</label>
+                        <div>
+                            <input type="radio" id="r-html" name="lenguaje_decoracion" value="html">
+                            <label for="r-html" style="display:inline; font-weight:normal;">HTML</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="r-css" name="lenguaje_decoracion" value="css">
+                            <label for="r-css" style="display:inline; font-weight:normal;">CSS</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="r-js" name="lenguaje_decoracion" value="js">
+                            <label for="r-js" style="display:inline; font-weight:normal;">JavaScript</label>
+                        </div>
+                    </div>
+
+                    <!-- Combo Box (select) - Test única respuesta -->
+                    <div class="grupo-form">
+                        <label for="etiqueta_enlace">3. ¿Qué etiqueta HTML se usa para crear un enlace?</label>
+                        <select id="etiqueta_enlace" name="etiqueta_enlace">
+                            <option value="">-- Selecciona una opción --</option>
+                            <option value="a">&lt;a&gt;</option>
+                            <option value="link">&lt;link&gt;</option>
+                            <option value="href">&lt;href&gt;</option>
+                        </select>
+                    </div>
+
+                    <!-- Checkbox - Test múltiple -->
+                    <div class="grupo-form">
+                        <label>4. Selecciona las metodologías tratadas en la web (varias opciones):</label>
+                        <div>
+                            <input type="checkbox" id="chk-flipped" name="metodos" value="flipped">
+                            <label for="chk-flipped" style="display:inline; font-weight:normal;">Flipped Classroom</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="chk-aronson" name="metodos" value="aronson">
+                            <label for="chk-aronson" style="display:inline; font-weight:normal;">Puzzle de Aronson</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="chk-montessori" name="metodos" value="montessori">
+                            <label for="chk-montessori" style="display:inline; font-weight:normal;">Montessori</label>
+                        </div>
+                    </div>
+
+                    <div class="botones-form">
+                        <button type="button" class="accion" onclick="procesarFormulario()">Corregir Test</button>
+                        <button type="reset" class="accion" style="background-color:#666;" onclick="ocultarResultado()">Limpiar</button>
+                    </div>
+                </form>
+
+                <!-- Div donde Javascript mostrará el resultado -->
+                <div id="resultado-evaluacion"></div>
+
+            </section>
+
+            <!-- Carcasa común: Footer dentro del contenedor central -->
+            <footer>
+                <p>Práctica de Didácticas de la Informática y Tecnología Web</p>
+                <p>Autores: Alumno 1, Alumno 2, Alumno 3, Alumno 4</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
