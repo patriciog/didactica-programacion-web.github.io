@@ -45,19 +45,8 @@ if (iframePrincipal) {
 	});
 }
 
-// 3. Navegación entre "Páginas" (Simulando HTMLs independientes)
-function cambiarPagina(idPagina) {
-	// Coger todas las secciones
-	const paginas = document.getElementsByClassName('pagina-contenido');
-	
-	// Ocultar todas
-	for(let i = 0; i < paginas.length; i++) {
-		paginas[i].classList.remove('activa');
-	}
-	
-	// Mostrar solo la seleccionada
-	document.getElementById(idPagina).classList.add('activa');
-
+// 3. Navegación entre "Páginas"
+function cambiarPagina() {
 	// En móviles, ocultamos el menú tras hacer clic para mayor comodidad
 	if(window.innerWidth <= 768) {
 		menuLateral.classList.add('oculto');
