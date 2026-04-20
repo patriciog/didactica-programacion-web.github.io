@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>5. Formularios en HTML5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="contenedor-curso">
+        <h1>5. Formularios: &lt;form&gt; e interactividad</h1>
+        
+        <p>Los formularios son la herramienta principal para que los usuarios interactúen con tu sitio web enviando datos. Se definen mediante la etiqueta &lt;form&gt;, que actúa como un contenedor para todos los campos de entrada. El atributo "action" especifica a dónde se envían los datos, mientras que "method" indica cómo se envían al servidor.</p>
+        
+        <p>Para que un formulario sea profesional y accesible, siempre debemos usar la etiqueta &lt;label&gt; vinculada a cada campo. El elemento &lt;input&gt; es el más versátil, ya que su función cambia totalmente según el atributo "type" que le asignes. Existen tipos específicos para texto simple, correos electrónicos, contraseñas, fechas y mucho más.</p>
+        
+        <p>HTML5 introdujo validaciones automáticas, permitiendo que el navegador verifique si un campo obligatorio está vacío antes de enviarlo. El atributo "name" es fundamental, pues es el nombre que el servidor buscará para procesar la información recibida. Además de los inputs, podemos usar &lt;textarea&gt; para textos largos y &lt;select&gt; para menús desplegables.</p>
+        
+        <p>Finalmente, todo formulario necesita un botón de envío, que suele ser un &lt;button&gt; o un input de tipo "submit". Dominar los formularios es esencial para crear aplicaciones web funcionales. En nuestra última lección, aprenderemos a insertar contenido externo en nuestra página.</p>
+<div class="simulador-contenedor">
+    <h2>🧪 Laboratorio Interactivo de Inputs</h2>
+    <p>Cambia las opciones para ver cómo se transforma el campo y cómo cambia el código HTML.</p>
+    
+    <div class="panel-controles">
+        <label for="selectorTipo"><strong>Elige el tipo:</strong></label>
+        <select id="selectorTipo">
+            <option value="text">Texto (text)</option>
+            <option value="password">Contraseña (password)</option>
+            <option value="email">Correo (email)</option>
+            <option value="number">Número (number)</option>
+            <option value="date">Fecha (date)</option>
+            <option value="color">Color (color)</option>
+            <option value="range">Rango (range)</option>
+        </select>
+
+        <label class="checkbox-control">
+            <input type="checkbox" id="checkRequerido"> ¿Es obligatorio (required)?
+        </label>
+    </div>
+
+    <div class="panel-vista-previa">
+        <h3>Vista Previa (Pruébalo)</h3>
+        <form id="formPrueba" onsubmit="event.preventDefault(); alert('¡Simulación de envío exitosa!');">
+            <label for="inputDinamico" style="display:block; margin-bottom:5px;">Tu dato:</label>
+            <input type="text" id="inputDinamico">
+            <button type="submit" class="boton-enviar-prueba">Probar Validación</button>
+        </form>
+    </div>
+
+    <div class="panel-codigo">
+        <h3>Código HTML Generado:</h3>
+        <pre><code id="codigoResultado">&lt;input type="text" id="dato"&gt;</code></pre>
+    </div>
+</div>
+        <div class="navegacion">
+            <a href="iframe.html" class="boton-siguiente">Siguiente: La etiqueta &lt;iframe&gt; &rarr;</a>
+        </div>
+    </div>
+<script src="simulador.js"></script>
+</body>
+</html>
