@@ -263,3 +263,99 @@ button.accion:hover {
     height: 600px; /* O el tamaño que prefiráis */
     border: none;
 }
+
+/* Contenedor central como si fuera una "tarjeta" de aprendizaje */
+.contenedor-curso {
+    background-color: #ffffff;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #e34c26; /* Color oficial de HTML5 */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el contenedor del botón */
+.navegacion {
+    margin-top: 40px;
+    text-align: right;
+}
+
+/* Estilos para que el enlace parezca un botón moderno */
+.boton-siguiente {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-siguiente:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el Simulador */
+.simulador-contenedor {
+    background-color: #f8f9fa;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 30px 0;
+}
+
+.panel-controles {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+select {
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 4px;
+}
+
+.panel-vista-previa {
+    background-color: white;
+    padding: 20px;
+    border: 1px dashed #ccc;
+    margin-bottom: 20px;
+}
+
+.boton-enviar-prueba {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.panel-codigo {
+    background-color: #2d2d2d;
+    color: #56ef83;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 1.1em;
+    overflow-x: auto;
+}
