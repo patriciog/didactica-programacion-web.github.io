@@ -12,7 +12,7 @@ btnMenu.onclick = function() {
 };
 
 // 2. Accesibilidad: Aumentar/Reducir tamaño de letra
-const btnAccesibilidad = document.getElementById('btn-accesibilidad');
+const btnAccesibilidad = document.querySelector('#btn-accesibilidad');
 const iframePrincipal = document.getElementById('iframe-principal');
 
 let nivelLetra = 0;
