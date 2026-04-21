@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección: Elementos Iframe</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <main class="contenedor-curso">
+        
+        <h1>¿Qué es un Iframe?</h1>
+        <p>Un <strong>iframe</strong> se utiliza para mostrar una página web dentro de otra página web [1]. Es muy útil para incrustar vídeos, mapas o documentos externos sin que el usuario tenga que abandonar tu sitio.</p>
+
+        <h2>1. Sintaxis y Atributos Básicos</h2>
+        <p>Un iframe se define con la etiqueta <code>&lt;iframe&gt;</code>. Sus atributos más importantes son [1]:</p>
+        <ul>
+            <li><strong>src:</strong> Especifica la URL (dirección web) de la página que se va a mostrar dentro del marco.</li>
+            <li><strong>width y height:</strong> Definen el ancho y el alto del marco (por defecto en píxeles, aunque aceptan porcentajes).</li>
+            <li><strong>style:</strong> Por defecto, los iframes tienen un borde. Para quitarlo o cambiarlo, puedes usar la propiedad CSS border (ej. <code>style="border:none;"</code>) [2].</li>
+        </ul>
+        <div class="panel-codigo">
+&lt;iframe src="pagina_externa.html" width="100%" height="300" style="border:none;"&gt;
+&lt;/iframe&gt;
+        </div>
+
+        <h2>2. Iframe como destino de un enlace</h2>
+        <p>Una característica muy potente es usar un iframe como "marco de destino" para que, al hacer clic en un enlace de tu página, este se abra dentro del propio iframe y no en una pestaña nueva [3].</p>
+        <p>Para lograrlo, el atributo <code>target</code> del enlace debe tener el mismo valor que el atributo <code>name</code> del iframe [3]:</p>
+
+        <div class="panel-codigo">
+&lt;iframe src="inicio.html" name="marco_ejemplo"&gt;&lt;/iframe&gt;
+
+&lt;p&gt;
+   &lt;a href="http://www.w3schools.com" target="marco_ejemplo"&gt;Abrir W3Schools&lt;/a&gt;
+&lt;/p&gt;
+        </div>
+
+        <h2>Ejemplo Práctico</h2>
+        <p>Haz clic en los enlaces a continuación para ver cómo cambia el contenido del iframe inferior dinámicamente [4]:</p>
+        
+        <ul>
+            <li><a href="https://es.wikipedia.org/wiki/HTML5" target="iframe-principal">Cargar artículo sobre HTML5</a></li>
+            <li><a href="https://es.wikipedia.org/wiki/World_Wide_Web_Consortium" target="iframe-principal">Cargar artículo sobre W3C</a></li>
+        </ul>
+
+        <!-- Aplicamos el ID '#iframe-principal' definido en el CSS para un tamaño de 100% x 600px sin bordes -->
+        <iframe id="iframe-principal" name="iframe-principal" src="https://es.wikipedia.org/wiki/HTML5" title="Marco interactivo de demostración"></iframe>
+
+        <!-- Botón de navegación al siguiente tema -->
+        <div class="navegacion">
+            <a href="css.html" class="boton-siguiente">Siguiente Lección</a>
+        </div>
+
+    </main>
+
+</body>
+</html>
