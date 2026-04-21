@@ -260,7 +260,7 @@ button.accion:hover {
 /* Para que las paginas independientes centrales ocupen todo el espacio */
 #iframe-principal {
     width: 100%;
-    height: 600px; /* O el tamaño que prefiráis */
+    height: 100%;
     border: none;
 }
 
