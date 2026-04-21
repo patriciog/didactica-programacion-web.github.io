@@ -2,6 +2,11 @@
 const btnMenu = document.getElementById('btn-menu');
 const menuLateral = document.getElementById('menu-lateral');
 
+// En móviles, oculto de inicio
+if(window.innerWidth <= 768) {
+	menuLateral.classList.add('oculto');
+}
+
 btnMenu.onclick = function() {
 	menuLateral.classList.toggle('oculto');
 };
