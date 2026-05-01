@@ -360,3 +360,22 @@ select {
     overflow-x: auto;
 	
 }
+
+.img-css-ejemplo{
+	width: 70%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.boxmodel_content{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 10px;
+	align-items: center;
+}
+
+.boxmodel_content img{
+	align-self: center;
+}

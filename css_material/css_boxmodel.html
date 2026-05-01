@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css"> </head>
+<body>
+    <div class="contenedor-curso">
+        <h1>Box Model</h1>
+        
+        <p>El modelo de caja (Box Model) es la base del diseño en CSS. Cada elemento HTML se representa como una caja rectangular compuesta por varias capas.</p>
+
+
+        <div class="boxmodel_content">
+            <img src="./img/boxModel.PNG" alt="">
+
+                <table border="1" cellpadding="10" cellspacing="0">
+                    <thead>
+                        <tr>
+                        <th>Capa</th>
+                        <th>Descripción</th>
+                        <th>Función</th>
+                        <th>Ejemplo CSS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>Content</td>
+                        <td>Contenido del elemento (texto, imagen, etc.)</td>
+                        <td>Es la parte principal donde se muestra la información</td>
+                        <td>width: 200px;</td>
+                        </tr>
+                        <tr>
+                        <td>Padding</td>
+                        <td>Espacio interno entre el contenido y el borde</td>
+                        <td>Añade “aire” dentro del elemento</td>
+                        <td>padding: 20px;</td>
+                        </tr>
+                        <tr>
+                        <td>Border</td>
+                        <td>Borde que rodea el padding y el contenido</td>
+                        <td>Define el contorno visual del elemento</td>
+                        <td>border: 2px solid black;</td>
+                        </tr>
+                        <tr>
+                        <td>Margin</td>
+                        <td>Espacio externo alrededor del elemento</td>
+                        <td>Separa el elemento de otros elementos</td>
+                        <td>margin: 10px;</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+
+        <p>En CSS existen diferentes formas de asignar valores a las propiedades margin y padding, lo que permite ajustar el espacio alrededor y dentro de los elementos de manera flexible. Estas formas pueden ser abreviadas o detalladas, dependiendo del nivel de control que se necesite.</p>
+        <table border="1" cellpadding="10" cellspacing="0">
+            <thead>
+                <tr>
+                <th>Forma</th>
+                <th>Ejemplo CSS</th>
+                <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Valor único</td>
+                <td>margin: 10px;<br>padding: 10px;</td>
+                <td>Se aplica el mismo valor a los 4 lados</td>
+                </tr>
+                <tr>
+                <td>2 valores</td>
+                <td>margin: 10px 20px;<br>padding: 10px 20px;</td>
+                <td>1º valor: top/bottom<br>2º valor: right/left</td>
+                </tr>
+                <tr>
+                <td>3 valores</td>
+                <td>margin: 10px 20px 30px;<br>padding: 10px 20px 30px;</td>
+                <td>1º top, 2º right/left, 3º bottom</td>
+                </tr>
+                <tr>
+                <td>4 valores</td>
+                <td>margin: 10px 20px 30px 40px;<br>padding: 10px 20px 30px 40px;</td>
+                <td>Orden: top, right, bottom, left</td>
+                </tr>
+                <tr>
+                <td>Forma detallada</td>
+                <td>
+                    margin-top: 10px;<br>
+                    margin-right: 20px;<br>
+                    margin-bottom: 30px;<br>
+                    margin-left: 40px;
+                </td>
+                <td>Control individual de cada lado</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    
+
+        <div class="navegacion">
+            <a href="./css_flexbox.html" class="boton-siguiente">Siguiente: Flexbox &rarr;</a>
+        </div>
+    </div>
+</body>
+</html>
