@@ -12,15 +12,36 @@
         <p>Para dirigir la lógica del programa, JavaScript utiliza estructuras de control de flujo. Las sintaxis es la siguiente:</p>
         
         <p><strong>Condicionales:</strong> Bloques if...else para bifurcaciones, declaraciones switch para múltiples casos, y el operador ternario (condición) ? true : false para decisiones en una sola línea. </p>
-        
+          <div class="panel-codigo" >   
+                let llueve = false; <br><br>
+                if (llueve) {<br>
+                    console.log("Lleva paraguas.");<br>
+                } else {<br>
+                    console.log("Puedes ir en camiseta.");<br>
+                }<br>
+        </div>
         <p><strong>Bucles (Iteraciones):</strong> Estructuras como for (y su variante for...of para recorrer arrays), while y do...while que permiten ejecutar un bloque de instrucciones múltiples veces.</p>
-        
+        <div class="panel-codigo" > 
+            // Queremos contar hasta 5<br>
+            for (let i = 1; i <= 5; i++) {<br>
+                console.log("Estamos en el paso número: " + i);<br>
+            }<br>
+        </div>
         <p><strong>Funciones:</strong> Al ser un lenguaje funcional, las funciones son elementos de primer orden. Se declaran con la palabra clave function seguida de su nombre y paréntesis para los parámetros (datos adicionales que necesita para trabajar). Pueden devolver resultados usando la sentencia return. Un rasgo útil de su sintaxis es que permite definir parámetros opcionales asignándoles un valor por defecto en la propia declaración (ej. function saludar(nombre = "usuario")). </p>
+        <div class="panel-codigo" >
+            // Definimos la función <br>
+            function saludar(nombre) {<br>
+                return "¡Hola " + nombre + "! Bienvenido a la clase de Web.";<br>
+            }<br><br>
 
+            // Usamos la función (esto se llama "llamar" a la función)<br>
+            console.log(saludar("Leo"));<br>
+            console.log(saludar("Marta"));<br>
+        </div>
         <p>Haz clic en el botón de abajo para avanzar a nuestra siguiente lección.</p>
 
         <div class="navegacion">
-            <a href="cuestionario.html" class="boton-siguiente">Siguiente: Ejemplos JS &rarr;</a>
+            <a href="cuestionario.html" class="boton-siguiente">Siguiente: Cuestionario &rarr;</a>
         </div>
     </div>
 </body>
