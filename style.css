@@ -357,7 +357,7 @@ select {
     border-radius: 5px;
     font-family: monospace;
     font-size: 1.1em;
-    overflow-x: auto;
+    overflow-x: visible;
 	
 }
 
