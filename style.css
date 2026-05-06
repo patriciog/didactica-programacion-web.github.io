@@ -291,6 +291,11 @@ p {
     text-align: right;
 }
 
+.navegacion_left {
+    margin-top: 40px;
+    text-align: left;
+}
+
 /* Estilos para que el enlace parezca un botón moderno */
 .boton-siguiente {
     display: inline-block;
