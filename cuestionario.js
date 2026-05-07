@@ -1,96 +1,94 @@
 // Validación y Corrección del Formulario
 function procesarFormulario() {
-	const divResultado = document.querySelector('#resultado-evaluacion');
-	const formulario = document.querySelector('#formulario-evaluacion');
-	
-	// Variables para recoger valores
-	const nombre = document.querySelector('#nombre').value;
-	const etiquetaEnlace = document.querySelector('#etiqueta_enlace').value;
-	
-	// Recoger radio buttons
-	const radiosCSS = document.querySelectorAll('[name="lenguaje_decoracion"]');
-	let radioSeleccionado = "";
-	for (let i = 0; i < radiosCSS.length; i++) {
-		if (radiosCSS[i].checked) {
-			radioSeleccionado = radiosCSS[i].value;
-		}
-	}
+    const divResultado = document.querySelector('#resultado-evaluacion');
+    const nombre = document.querySelector('#nombre').value.trim();
 
-	// Recoger checkboxes
-	const chkFlipped = document.querySelector('#chk-flipped').checked;
-	const chkAronson = document.querySelector('#chk-aronson').checked;
-	const chkMontessori = document.querySelector('#chk-montessori').checked;
+    // VALIDACIÓN: Comprobar que el nombre no está vacío
+    if (nombre === "") {
+        mostrarMensaje(divResultado, "Por favor, escribe tu nombre.", "mal");
+        return; // Sale de la función
+    }
 
-	// VALIDACIÓN: Comprobar que no hay campos vacíos obligatorios
-	if (nombre.trim() === "") {
-		mostrarMensaje(divResultado, "Por favor, escribe tu nombre.", "mal");
-		return; // Sale de la función
-	}
-	if (radioSeleccionado === "") {
-		mostrarMensaje(divResultado, "Por favor, responde a la pregunta 2.", "mal");
-		return;
-	}
-	if (etiquetaEnlace === "") {
-		mostrarMensaje(divResultado, "Por favor, selecciona una opción en la pregunta 3.", "mal");
-		return;
-	}
+    // Definición de las respuestas correctas y el feedback para cada una
+    // (En la estructura HTML generada, la opción correcta siempre se asignó al value "a")
+    const datosPreguntas = {
+        q1: { correcta: "a", feedback: "El texto define explícitamente a HTML como el esqueleto o base estructural de la web." },
+        q2: { correcta: "a", feedback: "La estructura fundamental se basa en pares de etiquetas de apertura y cierre." },
+        q3: { correcta: "a", feedback: "La etiqueta &lt;body&gt; es el contenedor de todo lo que el usuario puede ver." },
+        q4: { correcta: "a", feedback: "Esta etiqueta es un requisito obligatorio y no debe duplicarse." },
+        q5: { correcta: "a", feedback: "La jerarquía de encabezados va desde el nivel 1 (&lt;h1&gt;) hasta el 6 (&lt;h6&gt;)." },
+        q6: { correcta: "a", feedback: "Se aconseja limitar el &lt;h1&gt; a una única instancia como título principal." },
+        q7: { correcta: "a", feedback: "La etiqueta designada para bloques de texto de tipo párrafo es &lt;p&gt;." },
+        q8: { correcta: "a", feedback: "Textos y multimedia son el contenido que completa y rellena el esqueleto." },
+        q9: { correcta: "a", feedback: "Dado que el &lt;h1&gt; es el principal, los niveles del &lt;h2&gt; al &lt;h6&gt; se usan para subtítulos." },
+        q10: { correcta: "a", feedback: "Imágenes y vídeos son ejemplos de contenido visible del contenedor principal." }
+    };
 
-	// CORRECCIÓN: Calcular la nota si todo está validado
-	let nota = 0;
-	const totalPreguntas = 3; // (La de nombre no cuenta)
-	let fallos = [];
+    const totalPreguntas = 10;
+    let nota = 0;
+    let fallos = [];
 
-	// Corregir P2 (CSS)
-	if (radioSeleccionado === "css") {
-		nota++;
-	} else {
-		fallos.push("Pregunta 2: El lenguaje de decoración es CSS.");
-	}
+    // VALIDACIÓN y CORRECCIÓN de las 10 preguntas
+    for (let i = 1; i <= totalPreguntas; i++) {
+        const nombrePregunta = "q" + i;
+        const opciones = document.querySelectorAll(`[name="${nombrePregunta}"]`);
+        let respondida = false;
+        let valorSeleccionado = "";
 
-	// Corregir P3 (Etiqueta <a\>)
-	if (etiquetaEnlace === "a") {
-		nota++;
-	} else {
-		fallos.push("Pregunta 3: La etiqueta correcta para enlaces es &lt;a&gt;.");
-	}
+        // Comprobar qué radio button está seleccionado en la pregunta actual
+        for (let j = 0; j < opciones.length; j++) {
+            if (opciones[j].checked) {
+                respondida = true;
+                valorSeleccionado = opciones[j].value;
+                break;
+            }
+        }
 
-	// Corregir P4 (Checkboxes - Flipped y Aronson correctos, Montessori incorrecto)
-	if (chkFlipped === true && chkAronson === true && chkMontessori === false) {
-		nota++;
-	} else {
-		fallos.push("Pregunta 4: Debías marcar 'Flipped Classroom' y 'Puzzle de Aronson'.");
-	}
+        // Si no se ha respondido, detener la corrección y avisar al usuario
+        if (!respondida) {
+            mostrarMensaje(divResultado, `Por favor, responde a la pregunta ${i + 1}.`, "mal");
+            return; 
+        }
 
-	// Mostrar Resultados
-	let mensajeHTML = `<h3>Resultados para ${nombre}:</h3>`;
-	mensajeHTML += `<p>Has acertado ${nota} de ${totalPreguntas} preguntas.</p>`;
-	
-	if (nota === totalPreguntas) {
-		mensajeHTML += `<p>¡Excelente trabajo! Todo correcto.</p>`;
-		mostrarMensaje(divResultado, mensajeHTML, "bien");
-	} else {
-		mensajeHTML += `<p><strong>Revisa tus respuestas:</strong></p><ul>`;
-		for (let i = 0; i < fallos.length; i++) {
-			mensajeHTML += `<li>${fallos[i]}</li>`;
-		}
-		mensajeHTML += `</ul>`;
-		mostrarMensaje(divResultado, mensajeHTML, "mal");
-	}
+        // Si está respondida, corregir
+        if (valorSeleccionado === datosPreguntas[nombrePregunta].correcta) {
+            nota++;
+        } else {
+            // El índice visual de la pregunta es i + 1 (porque la 1 es el nombre)
+            fallos.push(`<strong>Pregunta ${i + 1}:</strong> ${datosPreguntas[nombrePregunta].feedback}`);
+        }
+    }
+
+    // MOSTRAR RESULTADOS
+    let mensajeHTML = `<h3>Resultados para ${nombre}:</h3>`;
+    mensajeHTML += `<p>Has acertado ${nota} de ${totalPreguntas} preguntas.</p>`;
+    
+    if (nota === totalPreguntas) {
+        mensajeHTML += `<p>¡Excelente trabajo! Todo correcto.</p>`;
+        mostrarMensaje(divResultado, mensajeHTML, "bien");
+    } else {
+        mensajeHTML += `<p><strong>Revisa tus respuestas:</strong></p><ul style="text-align: left;">`;
+        for (let i = 0; i < fallos.length; i++) {
+            mensajeHTML += `<li style="margin-bottom: 8px;">${fallos[i]}</li>`;
+        }
+        mensajeHTML += `</ul>`;
+        mostrarMensaje(divResultado, mensajeHTML, "mal");
+    }
 }
 
 // Función de apoyo para mostrar mensajes
 function mostrarMensaje(elemento, contenido, tipo) {
-	elemento.style.display = "block";
-	elemento.innerHTML = contenido;
-	
-	if (tipo === "bien") {
-		elemento.className = "nota-bien";
-	} else {
-		elemento.className = "nota-mal";
-	}
+    elemento.style.display = "block";
+    elemento.innerHTML = contenido;
+    
+    if (tipo === "bien") {
+        elemento.className = "nota-bien";
+    } else {
+        elemento.className = "nota-mal";
+    }
 }
 
-// Limpiar el aviso si se pulsa "Limpiar"
+// Limpiar el aviso si se pulsa el botón "Limpiar"
 function ocultarResultado() {
-	document.querySelector('#resultado-evaluacion').style.display = "none";
+    document.querySelector('#resultado-evaluacion').style.display = "none";
 }
