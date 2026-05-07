@@ -9,19 +9,18 @@ function procesarFormulario() {
         return; // Sale de la función
     }
 
-    // Definición de las respuestas correctas y el feedback para cada una
-    // (En la estructura HTML generada, la opción correcta siempre se asignó al value "a")
+    // Definición de las respuestas correctas y el feedback extraído del JSON
     const datosPreguntas = {
-        q1: { correcta: "a", feedback: "El texto define explícitamente a HTML como el esqueleto o base estructural de la web." },
-        q2: { correcta: "a", feedback: "La estructura fundamental se basa en pares de etiquetas de apertura y cierre." },
-        q3: { correcta: "a", feedback: "La etiqueta &lt;body&gt; es el contenedor de todo lo que el usuario puede ver." },
-        q4: { correcta: "a", feedback: "Esta etiqueta es un requisito obligatorio y no debe duplicarse." },
-        q5: { correcta: "a", feedback: "La jerarquía de encabezados va desde el nivel 1 (&lt;h1&gt;) hasta el 6 (&lt;h6&gt;)." },
-        q6: { correcta: "a", feedback: "Se aconseja limitar el &lt;h1&gt; a una única instancia como título principal." },
-        q7: { correcta: "a", feedback: "La etiqueta designada para bloques de texto de tipo párrafo es &lt;p&gt;." },
-        q8: { correcta: "a", feedback: "Textos y multimedia son el contenido que completa y rellena el esqueleto." },
-        q9: { correcta: "a", feedback: "Dado que el &lt;h1&gt; es el principal, los niveles del &lt;h2&gt; al &lt;h6&gt; se usan para subtítulos." },
-        q10: { correcta: "a", feedback: "Imágenes y vídeos son ejemplos de contenido visible del contenedor principal." }
+        q1: { correcta: "a", feedback: "Esta etiqueta actúa como el lienzo donde se coloca todo lo que el usuario final verá en su navegador." },
+        q2: { correcta: "a", feedback: "La jerarquía ayuda a los buscadores y usuarios a entender la organización lógica del contenido." },
+        q3: { correcta: "a", feedback: "El uso de etiquetas vinculadas es un estándar de accesibilidad que ayuda a lectores de pantalla y facilita la interacción." },
+        q4: { correcta: "a", feedback: "Este atributo indica en qué ventana o marco se debe cargar el recurso enlazado." },
+        q5: { correcta: "a", feedback: "La igualdad estricta compara tanto el valor numérico como el tipo de dato (número frente a cadena de texto)." },
+        q6: { correcta: "a", feedback: "'for' es una palabra clave reservada que se utiliza para crear bucles en la lógica del lenguaje." },
+        q7: { correcta: "a", feedback: "En programación, los índices de las colecciones de datos ordenadas suelen comenzar en cero." },
+        q8: { correcta: "a", feedback: "El padding añade 'aire' dentro de la caja, mientras que el margin separa la caja de sus vecinas." },
+        q9: { correcta: "a", feedback: "Las unidades relativas facilitan el diseño responsivo al escalar según la configuración del usuario o del navegador." },
+        q10: { correcta: "a", feedback: "El símbolo de almohadilla se utiliza para identificar de forma única a un elemento por su ID." }
     };
 
     const totalPreguntas = 10;
@@ -46,7 +45,7 @@ function procesarFormulario() {
 
         // Si no se ha respondido, detener la corrección y avisar al usuario
         if (!respondida) {
-            mostrarMensaje(divResultado, `Por favor, responde a la pregunta ${i + 1}.`, "mal");
+            mostrarMensaje(divResultado, `Por favor, responde a la pregunta ${i}.`, "mal");
             return; 
         }
 
@@ -54,8 +53,7 @@ function procesarFormulario() {
         if (valorSeleccionado === datosPreguntas[nombrePregunta].correcta) {
             nota++;
         } else {
-            // El índice visual de la pregunta es i + 1 (porque la 1 es el nombre)
-            fallos.push(`<strong>Pregunta ${i + 1}:</strong> ${datosPreguntas[nombrePregunta].feedback}`);
+            fallos.push(`<strong>Pregunta ${i}:</strong> ${datosPreguntas[nombrePregunta].feedback}`);
         }
     }
 
