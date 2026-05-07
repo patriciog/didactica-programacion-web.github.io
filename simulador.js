@@ -1,8 +1,8 @@
 // 1. Obtenemos los elementos del HTML
-const selector = document.getElementById('selectorTipo');
-const checkbox = document.getElementById('checkRequerido');
-const inputDinamico = document.getElementById('inputDinamico');
-const codigoResultado = document.getElementById('codigoResultado');
+const selector = document.querySelector('#selectorTipo');
+const checkbox = document.querySelector('#checkRequerido');
+const inputDinamico = document.querySelector('#inputDinamico');
+const codigoResultado = document.querySelector('#codigoResultado');
 
 // 2. Creamos una función que actualiza todo
 function actualizarSimulador() {
