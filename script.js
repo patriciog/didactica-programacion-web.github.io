@@ -1,6 +1,6 @@
 // 1. Mostrar/Ocultar Menú Lateral
-const btnMenu = document.getElementById('btn-menu');
-const menuLateral = document.getElementById('menu-lateral');
+const btnMenu = document.querySelector('#btn-menu');
+const menuLateral = document.querySelector('#menu-lateral');
 
 // En móviles, oculto de inicio
 if(window.innerWidth <= 768) {
@@ -13,7 +13,7 @@ btnMenu.onclick = function() {
 
 // 2. Accesibilidad: Aumentar/Reducir tamaño de letra
 const btnAccesibilidad = document.querySelector('#btn-accesibilidad');
-const iframePrincipal = document.getElementById('iframe-principal');
+const iframePrincipal = document.querySelector('#iframe-principal');
 
 let nivelLetra = 0;
 const tamanos = ['16px', '20px', '24px'];
@@ -60,15 +60,15 @@ function cambiarPagina() {
 
 // 4. Validación y Corrección del Formulario
 function procesarFormulario() {
-	const divResultado = document.getElementById('resultado-evaluacion');
-	const formulario = document.getElementById('formulario-evaluacion');
+	const divResultado = document.querySelector('#resultado-evaluacion');
+	const formulario = document.querySelector('#formulario-evaluacion');
 	
 	// Variables para recoger valores
-	const nombre = document.getElementById('nombre').value;
-	const etiquetaEnlace = document.getElementById('etiqueta_enlace').value;
+	const nombre = document.querySelector('#nombre').value;
+	const etiquetaEnlace = document.querySelector('#etiqueta_enlace').value;
 	
 	// Recoger radio buttons
-	const radiosCSS = document.getElementsByName('lenguaje_decoracion');
+	const radiosCSS = document.querySelectorAll('[name="lenguaje_decoracion"]');
 	let radioSeleccionado = "";
 	for (let i = 0; i < radiosCSS.length; i++) {
 		if (radiosCSS[i].checked) {
@@ -77,9 +77,9 @@ function procesarFormulario() {
 	}
 
 	// Recoger checkboxes
-	const chkFlipped = document.getElementById('chk-flipped').checked;
-	const chkAronson = document.getElementById('chk-aronson').checked;
-	const chkMontessori = document.getElementById('chk-montessori').checked;
+	const chkFlipped = document.querySelector('#chk-flipped').checked;
+	const chkAronson = document.querySelector('#chk-aronson').checked;
+	const chkMontessori = document.querySelector('#chk-montessori').checked;
 
 	// VALIDACIÓN: Comprobar que no hay campos vacíos obligatorios
 	if (nombre.trim() === "") {
@@ -152,5 +152,5 @@ function mostrarMensaje(elemento, contenido, tipo) {
 
 // Limpiar el aviso si se pulsa "Limpiar"
 function ocultarResultado() {
-	document.getElementById('resultado-evaluacion').style.display = "none";
+	document.querySelector('#resultado-evaluacion').style.display = "none";
 }
