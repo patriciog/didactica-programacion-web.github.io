@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Formulario de Autoevaluación Extendido</title>
+    <title>Formulario de Autoevaluación HTML/JS</title>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
@@ -28,34 +28,29 @@
         </div>
 
         <div class="grupo-form">
-            <label for="q3">3. ¿Qué atributo de HTML se utiliza para definir el estilo en línea de un elemento?</label>
+            <label for="q3">3. ¿Qué atributo HTML define el estilo en línea?</label>
             <select id="q3" name="q3">
-                <option value="">-- Selecciona una opción --</option>
+                <option value="">-- Selecciona --</option>
                 <option value="class">class</option>
-                <option value="styles">styles</option>
                 <option value="style">style</option>
-                <option value="font">font</option>
             </select>
         </div>
 
         <div class="grupo-form">
-            <label>4. ¿Cuáles de estos son lenguajes de programación o marcado válidos? (Selecciona los dos correctos):</label>
-            <div>
-                <input type="checkbox" name="q4" value="html"> HTML
-            </div>
-            <div>
-                <input type="checkbox" name="q4" value="python"> Python
-            </div>
-            <div>
-                <input type="checkbox" name="q4" value="vhs"> VHS
-            </div>
+            <label>4. ¿Cuáles son lenguajes válidos? (Marca los dos):</label>
+            <div><input type="checkbox" name="q4" value="html"> HTML</div>
+            <div><input type="checkbox" name="q4" value="python"> Python</div>
+            <div><input type="checkbox" name="q4" value="vhs"> VHS</div>
         </div>
 
         <div class="grupo-form">
-            <label>5. ¿Es obligatorio incluir el atributo 'alt' en las etiquetas &lt;img&gt; para mejorar la accesibilidad?</label>
-            <div>
-                <input type="checkbox" id="q5" name="q5" value="si"> Sí, es una buena práctica fundamental.
-            </div>
+            <label for="q5">5. Selecciona las etiquetas que son de "autocierre" (Usa Ctrl/Cmd para elegir varias):</label>
+            <select id="q5" name="q5" multiple size="4" style="width: 100%; max-width: 300px; display: block; margin-top: 10px;">
+                <option value="img">&lt;img&gt;</option>
+                <option value="div">&lt;div&gt;</option>
+                <option value="br">&lt;br&gt;</option>
+                <option value="p">&lt;p&gt;</option>
+            </select>
         </div>
 
         <div class="botones-form">
@@ -64,7 +59,7 @@
         </div>
     </form>
 
-    <div id="resultado-evaluacion" style="margin-top: 20px; padding: 15px; display: none;"></div>
+    <div id="resultado-evaluacion" style="margin-top: 20px; padding: 15px; display: none; border-radius: 5px;"></div>
 
     <script src="cuestionario.js"></script>
 </body>
