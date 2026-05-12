@@ -212,6 +212,12 @@ input[type="text"], select {
 	box-sizing: border-box;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type="radio"], input[type="checkbox"]{
+	accent-color: #ff7b00;
+	cursor: pointer;
 }
 
 .botones-form {
@@ -373,6 +379,10 @@ select {
 	margin-right: auto;
 }
 
+.img-css-ejemplo:hover{
+	transform: scale(1.2);
+}
+
 .boxmodel_content{
 	display: flex;
 	flex-direction: column;
@@ -383,4 +393,18 @@ select {
 
 .boxmodel_content img{
 	align-self: center;
+}
+
+.imagen-froggy:hover{
+	transform: scale(1.2);
+
+}
+
+.lista-metodologia{
+	max-width: 85%;
+	margin: auto;
+}
+
+.lista-metodologia li{
+	margin: 2.5%
 }
