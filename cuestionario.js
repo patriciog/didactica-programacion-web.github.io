@@ -10,11 +10,11 @@ function procesarFormulario() {
 
     // Configuración de respuestas
     const datosPreguntas = {
-        q1: { tipo: "radio", correcta: "a", feedback: "El body contiene lo visible." },
-        q2: { tipo: "radio", correcta: "a", feedback: "La jerarquía es vital para el SEO y accesibilidad." },
-        q3: { tipo: "select", correcta: "style", feedback: "Atributo 'style' para CSS en línea." },
+        q1: { tipo: "radio", correcta: " Contener el contenido visible. ", feedback: "El body contiene lo visible." },
+        q2: { tipo: "radio", correcta: " De forma jerárquica por importancia.", feedback: "La jerarquía es vital para el SEO y accesibilidad." },
+        q3: { tipo: "select", correcta: " style", feedback: "Atributo 'style' para CSS en línea." },
         q4: { tipo: "checkbox_group", correcta: ["html", "python"], feedback: "HTML y Python son los lenguajes correctos." },
-        q5: { tipo: "select_multiple", correcta: ["img", "br"], feedback: "Las etiquetas <img> y <br> no necesitan cierre independiente." }
+        q5: { tipo: "select_multiple", correcta: ["img", "br"], feedback: "Las etiquetas de imagen y saltos de carro no necesitan cierre independiente." }
     };
 
     let nota = 0;
