@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Formulario de Autoevaluación Extendido</title>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
@@ -15,202 +16,45 @@
         </div>
 
         <div class="grupo-form">
-            <label>1. ¿Cuál es la función principal de la etiqueta &lt;body&gt; en un documento HTML?</label>
+            <label>1. ¿Cuál es la función principal de la etiqueta &lt;body&gt;?</label>
+            <div><input type="radio" name="q1" value="a"> Contener el contenido visible.</div>
+            <div><input type="radio" name="q1" value="b"> Almacenar metadatos técnicos.</div>
+        </div>
+
+        <div class="grupo-form">
+            <label>2. ¿Cómo deben usarse los encabezados &lt;h1&gt; a &lt;h6&gt;?</label>
+            <div><input type="radio" name="q2" value="a"> De forma jerárquica por importancia.</div>
+            <div><input type="radio" name="q2" value="b"> Según el tamaño de fuente deseado.</div>
+        </div>
+
+        <div class="grupo-form">
+            <label for="q3">3. ¿Qué atributo de HTML se utiliza para definir el estilo en línea de un elemento?</label>
+            <select id="q3" name="q3">
+                <option value="">-- Selecciona una opción --</option>
+                <option value="class">class</option>
+                <option value="styles">styles</option>
+                <option value="style">style</option>
+                <option value="font">font</option>
+            </select>
+        </div>
+
+        <div class="grupo-form">
+            <label>4. ¿Cuáles de estos son lenguajes de programación o marcado válidos? (Selecciona los dos correctos):</label>
             <div>
-                <input type="radio" id="q1-opt2" name="q1" value="b">
-                <label for="q1-opt2" style="display:inline; font-weight:normal;">Almacenar información técnica y metadatos para el navegador.</label>
+                <input type="checkbox" name="q4" value="html"> HTML
             </div>
             <div>
-                <input type="radio" id="q1-opt3" name="q1" value="c">
-                <label for="q1-opt3" style="display:inline; font-weight:normal;">Definir exclusivamente los enlaces a archivos externos de CSS y JavaScript.</label>
+                <input type="checkbox" name="q4" value="python"> Python
             </div>
             <div>
-                <input type="radio" id="q1-opt1" name="q1" value="a">
-                <label for="q1-opt1" style="display:inline; font-weight:normal;">Contener todo el contenido visible, como párrafos, imágenes y videos.</label>
-            </div>
-            <div>
-                <input type="radio" id="q1-opt4" name="q1" value="d">
-                <label for="q1-opt4" style="display:inline; font-weight:normal;">Servir como un contenedor invisible que no afecta la visualización del sitio.</label>
+                <input type="checkbox" name="q4" value="vhs"> VHS
             </div>
         </div>
 
         <div class="grupo-form">
-            <label>2. De acuerdo con las buenas prácticas de estructura, ¿cómo deben utilizarse los encabezados desde &lt;h1&gt; hasta &lt;h6&gt;?</label>
+            <label>5. ¿Es obligatorio incluir el atributo 'alt' en las etiquetas &lt;img&gt; para mejorar la accesibilidad?</label>
             <div>
-                <input type="radio" id="q2-opt4" name="q2" value="d">
-                <label for="q2-opt4" style="display:inline; font-weight:normal;">Insertando &lt;h6&gt; al principio para los títulos más relevantes.</label>
-            </div>
-            <div>
-                <input type="radio" id="q2-opt1" name="q2" value="a">
-                <label for="q2-opt1" style="display:inline; font-weight:normal;">De forma jerárquica para organizar títulos y subtítulos por importancia.</label>
-            </div>
-            <div>
-                <input type="radio" id="q2-opt3" name="q2" value="c">
-                <label for="q2-opt3" style="display:inline; font-weight:normal;">Usando varios &lt;h1&gt; para destacar todos los párrafos importantes.</label>
-            </div>
-            <div>
-                <input type="radio" id="q2-opt2" name="q2" value="b">
-                <label for="q2-opt2" style="display:inline; font-weight:normal;">Basándose únicamente en el tamaño de fuente que se desea mostrar.</label>
-            </div>
-        </div>
-
-        <div class="grupo-form">
-            <label>3. ¿Por qué es fundamental vincular una etiqueta &lt;label&gt; a cada campo &lt;input&gt; en un formulario?</label>
-            <div>
-                <input type="radio" id="q3-opt2" name="q3" value="b">
-                <label for="q3-opt2" style="display:inline; font-weight:normal;">Para asegurar que el botón de envío funcione correctamente.</label>
-            </div>
-            <div>
-                <input type="radio" id="q3-opt3" name="q3" value="c">
-                <label for="q3-opt3" style="display:inline; font-weight:normal;">Porque es el atributo que define el nombre del dato enviado al servidor.</label>
-            </div>
-            <div>
-                <input type="radio" id="q3-opt4" name="q3" value="d">
-                <label for="q3-opt4" style="display:inline; font-weight:normal;">Para activar las validaciones automáticas de HTML5.</label>
-            </div>
-            <div>
-                <input type="radio" id="q3-opt1" name="q3" value="a">
-                <label for="q3-opt1" style="display:inline; font-weight:normal;">Para mejorar la accesibilidad y permitir que el usuario identifique el propósito del campo.</label>
-            </div>
-        </div>
-
-        <div class="grupo-form">
-            <label>4. Al usar un &lt;iframe&gt; como destino de un enlace, ¿qué atributo del enlace &lt;a&gt; debe coincidir con el nombre del marco?</label>
-            <div>
-                <input type="radio" id="q4-opt1" name="q4" value="a">
-                <label for="q4-opt1" style="display:inline; font-weight:normal;">El atributo target.</label>
-            </div>
-            <div>
-                <input type="radio" id="q4-opt4" name="q4" value="d">
-                <label for="q4-opt4" style="display:inline; font-weight:normal;">El atributo type.</label>
-            </div>
-            <div>
-                <input type="radio" id="q4-opt3" name="q4" value="c">
-                <label for="q4-opt3" style="display:inline; font-weight:normal;">El atributo src.</label>
-            </div>
-            <div>
-                <input type="radio" id="q4-opt2" name="q4" value="b">
-                <label for="q4-opt2" style="display:inline; font-weight:normal;">El atributo href.</label>
-            </div>
-        </div>
-
-        <div class="grupo-form">
-            <label>5. ¿Cuál es el resultado de comparar 10 con "10" usando el operador de igualdad estricta === en JavaScript?</label>
-            <div>
-                <input type="radio" id="q5-opt3" name="q5" value="c">
-                <label for="q5-opt3" style="display:inline; font-weight:normal;">undefined</label>
-            </div>
-            <div>
-                <input type="radio" id="q5-opt2" name="q5" value="b">
-                <label for="q5-opt2" style="display:inline; font-weight:normal;">true</label>
-            </div>
-            <div>
-                <input type="radio" id="q5-opt1" name="q5" value="a">
-                <label for="q5-opt1" style="display:inline; font-weight:normal;">false</label>
-            </div>
-            <div>
-                <input type="radio" id="q5-opt4" name="q5" value="d">
-                <label for="q5-opt4" style="display:inline; font-weight:normal;">null</label>
-            </div>
-        </div>
-
-        <div class="grupo-form">
-            <label>6. Al declarar variables en JavaScript, ¿cuál de los siguientes nombres causaría un error por ser una palabra reservada?</label>
-            <div>
-                <input type="radio" id="q6-opt4" name="q6" value="d">
-                <label for="q6-opt4" style="display:inline; font-weight:normal;">let MiVariable = true;</label>
-            </div>
-            <div>
-                <input type="radio" id="q6-opt1" name="q6" value="a">
-                <label for="q6-opt1" style="display:inline; font-weight:normal;">let for = 10;</label>
-            </div>
-            <div>
-                <input type="radio" id="q6-opt2" name="q6" value="b">
-                <label for="q6-opt2" style="display:inline; font-weight:normal;">let _nombre = "Luis";</label>
-            </div>
-            <div>
-                <input type="radio" id="q6-opt3" name="q6" value="c">
-                <label for="q6-opt3" style="display:inline; font-weight:normal;">let numero1 = 5;</label>
-            </div>
-        </div>
-
-        <div class="grupo-form">
-            <label>7. Si tienes un array definido como let lista = ["A", "B", "C"], ¿cómo accederías al primer elemento?</label>
-            <div>
-                <input type="radio" id="q7-opt2" name="q7" value="b">
-                <label for="q7-opt2" style="display:inline; font-weight:normal;">lista</label>
-            </div>
-            <div>
-                <input type="radio" id="q7-opt3" name="q7" value="c">
-                <label for="q7-opt3" style="display:inline; font-weight:normal;">lista.first</label>
-            </div>
-            <div>
-                <input type="radio" id="q7-opt4" name="q7" value="d">
-                <label for="q7-opt4" style="display:inline; font-weight:normal;">lista{0}</label>
-            </div>
-            <div>
-                <input type="radio" id="q7-opt1" name="q7" value="a">
-                <label for="q7-opt1" style="display:inline; font-weight:normal;">lista</label>
-            </div>
-        </div>
-
-        <div class="grupo-form">
-            <label>8. En el Box Model de CSS, ¿cuál es la diferencia funcional entre el padding y el margin?</label>
-            <div>
-                <input type="radio" id="q8-opt3" name="q8" value="c">
-                <label for="q8-opt3" style="display:inline; font-weight:normal;">El padding solo se aplica a imágenes y el margin a textos.</label>
-            </div>
-            <div>
-                <input type="radio" id="q8-opt4" name="q8" value="d">
-                <label for="q8-opt4" style="display:inline; font-weight:normal;">No hay diferencia; ambos se usan indistintamente para separar elementos.</label>
-            </div>
-            <div>
-                <input type="radio" id="q8-opt1" name="q8" value="a">
-                <label for="q8-opt1" style="display:inline; font-weight:normal;">El padding es el espacio interno y el margin es el espacio externo al elemento.</label>
-            </div>
-            <div>
-                <input type="radio" id="q8-opt2" name="q8" value="b">
-                <label for="q8-opt2" style="display:inline; font-weight:normal;">El margin define el color del borde y el padding su grosor.</label>
-            </div>
-        </div>
-
-        <div class="grupo-form">
-            <label>9. ¿Por qué es recomendable utilizar unidades relativas como rem en lugar de unidades absolutas como px para el tamaño del texto?</label>
-            <div>
-                <input type="radio" id="q9-opt2" name="q9" value="b">
-                <label for="q9-opt2" style="display:inline; font-weight:normal;">Las unidades rem ocupan menos memoria en el servidor.</label>
-            </div>
-            <div>
-                <input type="radio" id="q9-opt1" name="q9" value="a">
-                <label for="q9-opt1" style="display:inline; font-weight:normal;">Permiten que la página se adapte mejor a diferentes dispositivos y resoluciones.</label>
-            </div>
-            <div>
-                <input type="radio" id="q9-opt4" name="q9" value="d">
-                <label for="q9-opt4" style="display:inline; font-weight:normal;">La unidad rem permite que el texto brille en la pantalla.</label>
-            </div>
-            <div>
-                <input type="radio" id="q9-opt3" name="q9" value="c">
-                <label for="q9-opt3" style="display:inline; font-weight:normal;">Los navegadores antiguos no entienden la unidad px.</label>
-            </div>
-        </div>
-
-        <div class="grupo-form">
-            <label>10. Si deseas aplicar un color rojo únicamente a un elemento que tiene el atributo id="titulo", ¿qué selector CSS deberías usar?</label>
-            <div>
-                <input type="radio" id="q10-opt4" name="q10" value="d">
-                <label for="q10-opt4" style="display:inline; font-weight:normal;">*titulo</label>
-            </div>
-            <div>
-                <input type="radio" id="q10-opt3" name="q10" value="c">
-                <label for="q10-opt3" style="display:inline; font-weight:normal;">titulo</label>
-            </div>
-            <div>
-                <input type="radio" id="q10-opt2" name="q10" value="b">
-                <label for="q10-opt2" style="display:inline; font-weight:normal;">.titulo</label>
-            </div>
-            <div>
-                <input type="radio" id="q10-opt1" name="q10" value="a">
-                <label for="q10-opt1" style="display:inline; font-weight:normal;">#titulo</label>
+                <input type="checkbox" id="q5" name="q5" value="si"> Sí, es una buena práctica fundamental.
             </div>
         </div>
 
@@ -220,7 +64,8 @@
         </div>
     </form>
 
-    <div id="resultado-evaluacion"></div>
+    <div id="resultado-evaluacion" style="margin-top: 20px; padding: 15px; display: none;"></div>
+
     <script src="cuestionario.js"></script>
 </body>
 </html>
