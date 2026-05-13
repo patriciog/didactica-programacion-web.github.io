@@ -7,6 +7,13 @@
 	--color-borde: #dddddd;
 }
 
+
+
+/* Modifica estas reglas en tu style.css */
+
+
+/* IMPORTANTE: Los párrafos y títulos deben ser relativos */
+
 /* Estilos generales */
 body {
 	font-family: Arial, sans-serif;
@@ -18,6 +25,22 @@ body {
 	flex-direction: column;
 	height: 100vh;
 	background-color: #e9ecef;
+}
+
+p {
+    font-size: 1.1em; /* 1.1 veces el tamaño de la fuente del body  */
+    margin-bottom: 20px;
+}
+h1 {
+    font-size: 2em; /* Escalará automáticamente si el body sube de 16px a 20px  */
+    color: #e34c26;
+}
+.contenedor-curso {
+    /* Mantén el resto igual, pero evita poner font-size fijos aquí  */
+    background-color: #ffffff;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
 }
 
 /* Cabecera superior */

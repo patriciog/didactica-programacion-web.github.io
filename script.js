@@ -20,19 +20,25 @@ const tamanos = ['16px', '20px', '24px'];
 
 // Función que aplica el tamaño a la carcasa Y al iframe
 function aplicarTamanoLetra() {
-	const nuevoTamano = tamanos[nivelLetra];
+    const nuevoTamano = tamanos[nivelLetra];
 
-	// 1. Cambiamos la variable en la Carcasa (index.html)
-	document.documentElement.style.setProperty('--tamano-fuente', nuevoTamano);
+    // 1. Aplicar a la ventana principal (index3.txt) 
+    document.documentElement.style.setProperty('--tamano-fuente', nuevoTamano);
 
-	// 2. Nos metemos en el Iframe y cambiamos la variable allí también
-	try {
-		if (iframePrincipal && iframePrincipal.contentDocument) {
-			iframePrincipal.contentDocument.documentElement.style.setProperty('--tamano-fuente', nuevoTamano);
-		}
-	} catch (e) {
-		console.log("Error de seguridad al acceder al iframe (normal si se abre en local).");
-	}
+    // 2. Aplicar al contenido del iframe (html53.txt) 
+    try {
+        if (iframePrincipal) {
+            // Accedemos al documento interno del iframe 
+            const docIframe = iframePrincipal.contentDocument || iframePrincipal.contentWindow.document;
+            if (docIframe && docIframe.documentElement) {
+                docIframe.documentElement.style.setProperty('--tamano-fuente', nuevoTamano);
+            }
+        }
+    } catch (e) {
+        // Este error es común si intentas probarlo abriendo el archivo localmente (doble clic)
+        // por restricciones de seguridad del navegador (CORS).
+        console.log("Aviso: No se puede acceder al iframe. Usa un servidor local (Live Server).");
+    }
 }
 
 if (btnAccesibilidad) {
