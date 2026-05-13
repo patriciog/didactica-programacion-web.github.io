@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Formulario de Autoevaluación HTML/JS</title>
+    <title>Formulario de Autoevaluación corregido</title>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
     <h1>Formulario de Autoevaluación</h1>
-    <p>Comprueba tus conocimientos rellenando el siguiente test. Es necesario contestar a todas las preguntas.</p>
+    <p>Comprueba tus conocimientos. Es necesario contestar a todas las preguntas.</p>
     
     <form id="formulario-evaluacion">
         <div class="grupo-form">
@@ -17,19 +17,31 @@
 
         <div class="grupo-form">
             <label>1. ¿Cuál es la función principal de la etiqueta &lt;body&gt;?</label>
-            <div><input type="radio" name="q1" value="a"> Contener el contenido visible.</div>
-            <div><input type="radio" name="q1" value="b"> Almacenar metadatos técnicos.</div>
+            <div>
+                <input type="radio" name="q1" value="a" id="q1a"> 
+                <label for="q1a" style="display:inline; font-weight:normal;">Almacena el contenido visible.</label>
+            </div>
+            <div>
+                <input type="radio" name="q1" value="b" id="q1b"> 
+                <label for="q1b" style="display:inline; font-weight:normal;">Almacenar metadatos técnicos.</label>
+            </div>
         </div>
 
         <div class="grupo-form">
             <label>2. ¿Cómo deben usarse los encabezados &lt;h1&gt; a &lt;h6&gt;?</label>
-            <div><input type="radio" name="q2" value="a"> De forma jerárquica por importancia.</div>
-            <div><input type="radio" name="q2" value="b"> Según el tamaño de fuente deseado.</div>
+            <div>
+                <input type="radio" name="q2" value="a" id="q2a"> 
+                <label for="q2a" style="display:inline; font-weight:normal;">De forma jerárquica por importancia.</label>
+            </div>
+            <div>
+                <input type="radio" name="q2" value="b" id="q2b"> 
+                <label for="q2b" style="display:inline; font-weight:normal;">Según el tamaño de fuente deseado.</label>
+            </div>
         </div>
 
         <div class="grupo-form">
             <label for="q3">3. ¿Qué atributo HTML define el estilo en línea?</label>
-            <select id="q3" name="q3">
+            <select id="q3">
                 <option value="">-- Selecciona --</option>
                 <option value="class">class</option>
                 <option value="style">style</option>
@@ -37,19 +49,19 @@
         </div>
 
         <div class="grupo-form">
-            <label>4. ¿Cuáles son lenguajes válidos? (Marca los dos):</label>
-            <div><input type="checkbox" name="q4" value="html"> HTML</div>
-            <div><input type="checkbox" name="q4" value="python"> Python</div>
-            <div><input type="checkbox" name="q4" value="vhs"> VHS</div>
+            <label>4. ¿Cuáles son lenguajes válidos? (Selecciona los dos):</label>
+            <div><input type="checkbox" name="q4" value="html" id="q4html"> <label for="q4html" style="display:inline; font-weight:normal;">HTML</label></div>
+            <div><input type="checkbox" name="q4" value="python" id="q4py"> <label for="q4py" style="display:inline; font-weight:normal;">Python</label></div>
+            <div><input type="checkbox" name="q4" value="vhs" id="q4vhs"> <label for="q4vhs" style="display:inline; font-weight:normal;">VHS</label></div>
         </div>
 
         <div class="grupo-form">
-            <label for="q5">5. Selecciona las etiquetas que son de "autocierre" (Usa Ctrl/Cmd para elegir varias):</label>
-            <select id="q5" name="q5" multiple size="4" style="width: 100%; max-width: 300px; display: block; margin-top: 10px;">
-                <option value="img">&lt;img&gt;</option>
-                <option value="div">&lt;div&gt;</option>
-                <option value="br">&lt;br&gt;</option>
-                <option value="p">&lt;p&gt;</option>
+            <label for="q5">5. Selecciona las etiquetas de "autocierre" (Usa Ctrl/Cmd):</label>
+            <select id="q5" multiple size="4" style="width: 100%; max-width: 300px; display: block; margin-top: 10px;">
+                <option value="img">img</option>
+                <option value="div">div</option>
+                <option value="br">br</option>
+                <option value="p">p</option>
             </select>
         </div>
 

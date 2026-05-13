@@ -2,36 +2,36 @@ function procesarFormulario() {
     const divResultado = document.querySelector('#resultado-evaluacion');
     const nombre = document.querySelector('#nombre').value.trim();
 
-    // VALIDACIÓN: Nombre
     if (nombre === "") {
         mostrarMensaje(divResultado, "Por favor, escribe tu nombre.", "mal");
         return;
     }
 
-    // Configuración de respuestas
     const datosPreguntas = {
-        q1: { tipo: "radio", correcta: " Contener el contenido visible. ", feedback: "El body contiene lo visible." },
-        q2: { tipo: "radio", correcta: " De forma jerárquica por importancia.", feedback: "La jerarquía es vital para el SEO y accesibilidad." },
-        q3: { tipo: "select", correcta: " style", feedback: "Atributo 'style' para CSS en línea." },
-        q4: { tipo: "checkbox_group", correcta: ["html", "python"], feedback: "HTML y Python son los lenguajes correctos." },
-        q5: { tipo: "select_multiple", correcta: ["img", "br"], feedback: "Las etiquetas de imagen y saltos de carro no necesitan cierre independiente." }
+        q1: { tipo: "radio", correcta: "Almacena el contenido visible", feedback: "El body contiene lo que el usuario ve." },
+        q2: { tipo: "radio", correcta: "De forma jerárquica por importancia", feedback: "La jerarquía h1-h6 organiza el contenido por importancia." },
+        q3: { tipo: "select", correcta: "style", feedback: "El atributo 'style' se usa para CSS inline." },
+        q4: { tipo: "checkbox_group", correcta: ["html", "python"], feedback: "HTML y Python son lenguajes; VHS no." },
+        q5: { tipo: "select_multiple", correcta: ["br", "img"], feedback: "img y br son elementos vacíos." }
     };
 
     let nota = 0;
     let fallos = [];
-    const idsPreguntas = Object.keys(datosPreguntas);
 
-    for (let id of idsPreguntas) {
+    for (let id in datosPreguntas) {
         const config = datosPreguntas[id];
         let valorUsuario = null;
         let respondida = false;
 
-        // Lógica según el tipo de campo
         if (config.tipo === "radio") {
-            const el = document.querySelector(`input[name="${id}"]:checked`);
-            if (el) {
-                valorUsuario = el.value;
-                respondida = true;
+            // BUSQUEDA POR NAME para los radios
+            const opciones = document.getElementsByName(id);
+            for (let opt of opciones) {
+                if (opt.checked) {
+                    valorUsuario = opt.value;
+                    respondida = true;
+                    break;
+                }
             }
         } 
         else if (config.tipo === "select") {
@@ -49,46 +49,39 @@ function procesarFormulario() {
         } 
         else if (config.tipo === "select_multiple") {
             const el = document.getElementById(id);
-            const seleccionados = Array.from(el.selectedOptions).map(opt => opt.value);
-            if (seleccionados.length > 0) {
-                valorUsuario = seleccionados;
-                respondida = true;
-            }
+            valorUsuario = Array.from(el.selectedOptions).map(opt => opt.value);
+            if (valorUsuario.length > 0) respondida = true;
         }
 
-        // Validar si se dejó en blanco
         if (!respondida) {
-            mostrarMensaje(divResultado, `Falta responder la pregunta ${id.replace('q','')}.`, "mal");
+            mostrarMensaje(divResultado, `Falta la pregunta ${id.replace('q','')}.`, "mal");
             return;
         }
 
-        // Corrección
+        // CORRECCIÓN
         let esCorrecta = false;
         if (Array.isArray(config.correcta)) {
-            // Comparar arrays (ambos deben tener los mismos elementos)
-            esCorrecta = valorUsuario.length === config.correcta.length && 
-                         valorUsuario.every(v => config.correcta.includes(v));
+            const resCorrecta = [...config.correcta].sort().join(',');
+            const resUsuario = [...valorUsuario].sort().join(',');
+            esCorrecta = (resCorrecta === resUsuario);
         } else {
-            esCorrecta = valorUsuario === config.correcta;
+            esCorrecta = (valorUsuario === config.correcta);
         }
 
         if (esCorrecta) {
             nota++;
         } else {
-            fallos.push(`<strong>Pregunta ${id.replace('q','')}:</strong> ${config.feedback} <br><small>Respuesta correcta: ${config.correcta}</small>`);
+            fallos.push(`<strong>Pregunta ${id.replace('q','')}:</strong> ${config.feedback} (Correcta: ${config.correcta})`);
         }
     }
 
-    // Mostrar resultados finales
-    let htmlFinal = `<h3>Estudiante: ${nombre}</h3>`;
-    htmlFinal += `<p>Nota final: <strong>${nota} / ${idsPreguntas.length}</strong></p>`;
-    
-    if (nota === idsPreguntas.length) {
-        htmlFinal += `<p>¡Felicidades! Has aprobado con la máxima puntuación.</p>`;
+    let htmlFinal = `<h3>Resultado: ${nombre}</h3><p>Nota: ${nota} / 5</p>`;
+    if (nota === 5) {
+        htmlFinal += `<p>¡Perfecto!</p>`;
         mostrarMensaje(divResultado, htmlFinal, "bien");
     } else {
-        htmlFinal += `<p>Revisa los siguientes puntos:</p><ul>`;
-        fallos.forEach(f => htmlFinal += `<li style="margin-bottom:10px;">${f}</li>`);
+        htmlFinal += `<ul>`;
+        fallos.forEach(f => htmlFinal += `<li>${f}</li>`);
         htmlFinal += `</ul>`;
         mostrarMensaje(divResultado, htmlFinal, "mal");
     }
@@ -97,6 +90,7 @@ function procesarFormulario() {
 function mostrarMensaje(elemento, contenido, tipo) {
     elemento.style.display = "block";
     elemento.innerHTML = contenido;
+    elemento.style.padding = "15px";
     if (tipo === "bien") {
         elemento.style.backgroundColor = "#d4edda";
         elemento.style.color = "#155724";
