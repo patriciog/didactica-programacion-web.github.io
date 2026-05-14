@@ -9,20 +9,20 @@
     <h1>Formulario de Autoevaluación</h1>
     <p>Comprueba tus conocimientos. Es necesario contestar a todas las preguntas.</p>
     
-    <form id="formulario-evaluacion">
+    <form id="formulario-evaluacion" onsubmit="procesarFormulario(event)">
         <div class="grupo-form">
             <label for="nombre">Escribe tu nombre completo:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre...">
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre..." required>
         </div>
 
         <div class="grupo-form">
             <label>1. ¿Cuál es la función principal de la etiqueta &lt;body&gt;?</label>
             <div>
-                <input type="radio" name="q1" value="a" id="q1a"> 
+                <input type="radio" name="q1" value="a" id="q1a" required> 
                 <label for="q1a" style="display:inline; font-weight:normal;">Almacena el contenido visible.</label>
             </div>
             <div>
-                <input type="radio" name="q1" value="b" id="q1b"> 
+                <input type="radio" name="q1" value="b" id="q1b" required> 
                 <label for="q1b" style="display:inline; font-weight:normal;">Almacenar metadatos técnicos.</label>
             </div>
         </div>
@@ -30,18 +30,18 @@
         <div class="grupo-form">
             <label>2. ¿Cómo deben usarse los encabezados &lt;h1&gt; a &lt;h6&gt;?</label>
             <div>
-                <input type="radio" name="q2" value="a" id="q2a"> 
+                <input type="radio" name="q2" value="a" id="q2a" required> 
                 <label for="q2a" style="display:inline; font-weight:normal;">De forma jerárquica por importancia.</label>
             </div>
             <div>
-                <input type="radio" name="q2" value="b" id="q2b"> 
+                <input type="radio" name="q2" value="b" id="q2b" required> 
                 <label for="q2b" style="display:inline; font-weight:normal;">Según el tamaño de fuente deseado.</label>
             </div>
         </div>
 
         <div class="grupo-form">
             <label for="q3">3. ¿Qué atributo HTML define el estilo en línea?</label>
-            <select id="q3">
+            <select id="q3" name="q3" required>
                 <option value="">-- Selecciona --</option>
                 <option value="class">class</option>
                 <option value="style">style</option>
@@ -57,7 +57,7 @@
 
         <div class="grupo-form">
             <label for="q5">5. Selecciona las etiquetas de "autocierre" (Usa Ctrl/Cmd):</label>
-            <select id="q5" multiple size="4" style="width: 100%; max-width: 300px; display: block; margin-top: 10px;">
+            <select id="q5" name="q5" multiple size="4" style="width: 100%; max-width: 300px; display: block; margin-top: 10px;" required>
                 <option value="img">img</option>
                 <option value="div">div</option>
                 <option value="br">br</option>
@@ -66,7 +66,7 @@
         </div>
 
         <div class="botones-form">
-            <button type="button" class="accion" onclick="procesarFormulario()">Corregir Test</button>
+            <button type="submit" class="accion">Corregir Test</button>
             <button type="reset" class="accion" style="background-color:#666;" onclick="ocultarResultado()">Limpiar</button>
         </div>
     </form>

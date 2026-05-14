@@ -1,85 +1,60 @@
-function procesarFormulario() {
+const checkbox = document.querySelectorAll('input[name="q4"]');
+
+checkbox.forEach(c => {
+    c.addEventListener('change', validarGrupoCheckbox);
+});
+
+function procesarFormulario(event) {
+    event.preventDefault();
     const divResultado = document.querySelector('#resultado-evaluacion');
+    const formulario = document.getElementById('formulario-evaluacion');
     const nombre = document.querySelector('#nombre').value.trim();
+    validarGrupoCheckbox();
+    
+    const datos = new FormData(formulario);
+    const q1 = datos.get('q1');
+    const q2 = datos.get('q2');
+    const q3 = datos.getAll('q3');
+    const q4 = datos.getAll('q4');
+    const q5 = datos.getAll('q5');
 
-    if (nombre === "") {
-        mostrarMensaje(divResultado, "Por favor, escribe tu nombre.", "mal");
-        return;
-    }
-
-    const datosPreguntas = {
-        q1: { tipo: "radio", correcta: "Almacena el contenido visible", feedback: "El body contiene lo que el usuario ve." },
-        q2: { tipo: "radio", correcta: "De forma jerárquica por importancia", feedback: "La jerarquía h1-h6 organiza el contenido por importancia." },
-        q3: { tipo: "select", correcta: "style", feedback: "El atributo 'style' se usa para CSS inline." },
-        q4: { tipo: "checkbox_group", correcta: ["html", "python"], feedback: "HTML y Python son lenguajes; VHS no." },
-        q5: { tipo: "select_multiple", correcta: ["br", "img"], feedback: "img y br son elementos vacíos." }
-    };
-
-    let nota = 0;
+    let correctas = 0;
     let fallos = [];
 
-    for (let id in datosPreguntas) {
-        const config = datosPreguntas[id];
-        let valorUsuario = null;
-        let respondida = false;
-
-        if (config.tipo === "radio") {
-            // BUSQUEDA POR NAME para los radios
-            const opciones = document.getElementsByName(id);
-            for (let opt of opciones) {
-                if (opt.checked) {
-                    valorUsuario = opt.value;
-                    respondida = true;
-                    break;
-                }
-            }
-        } 
-        else if (config.tipo === "select") {
-            const el = document.getElementById(id);
-            valorUsuario = el.value;
-            if (valorUsuario !== "") respondida = true;
-        } 
-        else if (config.tipo === "checkbox_group") {
-            const checks = Array.from(document.querySelectorAll(`input[name="${id}"]:checked`))
-                                .map(c => c.value);
-            if (checks.length > 0) {
-                valorUsuario = checks;
-                respondida = true;
-            }
-        } 
-        else if (config.tipo === "select_multiple") {
-            const el = document.getElementById(id);
-            valorUsuario = Array.from(el.selectedOptions).map(opt => opt.value);
-            if (valorUsuario.length > 0) respondida = true;
-        }
-
-        if (!respondida) {
-            mostrarMensaje(divResultado, `Falta la pregunta ${id.replace('q','')}.`, "mal");
-            return;
-        }
-
-        // CORRECCIÓN
-        let esCorrecta = false;
-        if (Array.isArray(config.correcta)) {
-            const resCorrecta = [...config.correcta].sort().join(',');
-            const resUsuario = [...valorUsuario].sort().join(',');
-            esCorrecta = (resCorrecta === resUsuario);
-        } else {
-            esCorrecta = (valorUsuario === config.correcta);
-        }
-
-        if (esCorrecta) {
-            nota++;
-        } else {
-            fallos.push(`<strong>Pregunta ${id.replace('q','')}:</strong> ${config.feedback} (Correcta: ${config.correcta})`);
-        }
+    if(q1 == 'a'){
+        correctas++;
+    }else{
+            fallos.push(`<strong>Pregunta 1:</strong> El body contiene lo que el usuario ve. (Correcta: Almacena el contenido visible)`);
     }
 
-    let htmlFinal = `<h3>Resultado: ${nombre}</h3><p>Nota: ${nota} / 5</p>`;
-    if (nota === 5) {
-        htmlFinal += `<p>¡Perfecto!</p>`;
+    if(q2 == 'a'){
+        correctas++
+    }else{
+        fallos.push(`<strong>Pregunta 2:</strong> La jerarquía h1-h6 organiza el contenido por importancia. (Correcta: De forma jerárquica por importancia)`);
+    }
+
+    if(q3.length == 1 && q3[0] == "style"){
+        correctas++
+    }else{
+        fallos.push(`<strong>Pregunta 3:</strong> El atributo 'style' se usa para CSS inline. (Correcta: style)`);
+    }
+
+    if(q4.length == 2 && q4.includes('html') && q4.includes('python')){
+        correctas++
+    }else{
+        fallos.push(`<strong>Pregunta 4:</strong> HTML y Python son lenguajes; VHS no. (Correcta: ["html", "python"])`);
+    }
+
+    if(q5.length == 2 && q5.includes('img') && q5.includes('br')){
+        correctas++
+    }else{
+        fallos.push(`<strong>Pregunta 5:</strong> img y br son elementos vacíos. (Correcta: ["br", "img"])`);
+    }
+
+    let htmlFinal = `<h3>Resultado: ${nombre}</h3><p>Nota: ${correctas} / 5</p>`;
+    if(correctas == 5){
         mostrarMensaje(divResultado, htmlFinal, "bien");
-    } else {
+    }else{
         htmlFinal += `<ul>`;
         fallos.forEach(f => htmlFinal += `<li>${f}</li>`);
         htmlFinal += `</ul>`;
@@ -104,4 +79,17 @@ function mostrarMensaje(elemento, contenido, tipo) {
 
 function ocultarResultado() {
     document.querySelector('#resultado-evaluacion').style.display = "none";
+}
+
+function validarGrupoCheckbox(){
+    const checkbox = document.querySelectorAll('input[name="q4"]');
+    const isCheck = Array.from(checkbox).some(checkbox => checkbox.checked);
+
+    const primerCheckbox = checkbox[0];
+
+    if(!isCheck){
+        primerCheckbox.setCustomValidity("Debes seleccionar al menos una opción");
+    }else{
+        primerCheckbox.setCustomValidity("");
+    }
 }
